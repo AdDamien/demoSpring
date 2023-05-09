@@ -67,8 +67,49 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<adresse_serveur_bdd>localhost:3306</adresse_serveur_bdd>
+				<nom_bdd>spring_mns_23</nom_bdd>
+				<utilisateur_bdd>root</utilisateur_bdd>
+				<mot_de_passe_bdd></mot_de_passe_bdd>
+				<creation_bdd_auto>create</creation_bdd_auto>
+				<nom_fichier>mysql</nom_fichier>
+				<initialisation_donnee_bdd>true</initialisation_donnee_bdd>
+				<mod_initialisation_donnee_bdd>always</mod_initialisation_donnee_bdd>
+				<nom_dossier_upload>C:\\\\Users\\shado\\Desktop\\demoSpring\\upload</nom_dossier_upload>
+
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<adresse_serveur_bdd>172.18.0.2:3306</adresse_serveur_bdd>
+				<nom_bdd>spring_mns_23</nom_bdd>
+				<utilisateur_bdd>root</utilisateur_bdd>
+				<mot_de_passe_bdd>root</mot_de_passe_bdd>
+				<creation_bdd_auto>none</creation_bdd_auto>
+				<nom_fichier></nom_fichier>
+				<initialisation_donnee_bdd>false</initialisation_donnee_bdd>
+				<mod_initialisation_donnee_bdd>never</mod_initialisation_donnee_bdd>
+				<nom_dossier_upload>uploads</nom_dossier_upload>
+
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

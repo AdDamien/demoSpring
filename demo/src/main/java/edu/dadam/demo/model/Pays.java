@@ -27,6 +27,4 @@ public class Pays {
     @JsonView({VueUtilisateur.class, VueEntreprise.class})
     private String nom;
 
-
-
 }
